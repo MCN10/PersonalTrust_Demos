@@ -1,0 +1,145 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Personal Trust Demo</title>
+    <meta name="description" content="Personal Trust Demo" />
+    <meta name="keywords" content="Personal Trust Demo" />
+    <meta name="author" content="Mufudzi Christopher" />
+   <link rel="shortcut icon" href="{% static 'images/download.jpeg' %}">
+		<link rel="stylesheet" href="https://use.typekit.net/vxy2fer.css">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/demo4.7fb5a017.css' %}">
+		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+		<script>document.documentElement.className = "js";
+
+var supportsCssVars = function supportsCssVars() {
+  var e,
+      t = document.createElement("style");
+  return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e;
+};
+
+supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+	</head>
+	<body class="demo-4 loading">
+    <header class="bp-header ">
+      <br>
+        <span>
+            <div class="main">
+            </div>
+        </span>
+        <hr>
+
+        <nav>
+            <a href="{% url 'app:home' %}" title="Home">
+                <ion-icon src="{% static 'ion-icons/globe-outline.svg' %}" size="large"></ion-icon><br>Home
+            </a>
+            <a href="{% url 'app:track' %}" title="View the Process Outline">
+                <ion-icon src="{% static 'ion-icons/analytics-outline.svg' %}" size="large"></ion-icon><br>
+                Process
+            </a>
+
+            <a href="{% url 'app:profile' %}" title="My  Profile">
+                <ion-icon src="{% static 'ion-icons/person-outline.svg' %}" size="large"></ion-icon>Profile
+            </a>
+
+
+            <a href="{% url 'app:contact' %}" title="Contact">
+                <ion-icon src="{% static 'ion-icons/mail-outline.svg' %}" size="large"></ion-icon>Contact
+            </a>
+
+            <a href="{% url 'account:logout' %}" title="Log Out">
+                <ion-icon src="{% static 'ion-icons/log-out-outline.svg' %}" size="large"></ion-icon>Logout
+            </a>
+            <p style="color: #000;">Logged in as: {{user.username}}
+            </p>
+
+            <hr>
+        </nav>
+    </header>
+
+		<main data-scroll-container="">
+			<div class="content">
+				<div class="gallery" id="gallery">
+					<div class="gallery__text"><span class="gallery__text-inner" data-scroll="" data-scroll-speed="3" data-scroll-direction="vertical">Process</span><span data-scroll="" data-scroll-speed="-4" data-scroll-direction="vertical" class="gallery__text-inner">Outline</span></div>
+					<figure class="gallery__item" data-scroll="" data-scroll-speed="1">
+						<div class="gallery__item-img"><div class="gallery__item-imginner" style="background-image: url(../../../static/images/profile.jpg)"></div></div>
+						<figcaption class="gallery__item-caption">
+							<h2 class="gallery__item-title">Go to your Profile</h2>
+							<span class="gallery__item-number">01</span>
+							<!-- <p class="gallery__item-tags">
+								<span>#house</span>
+								<span>#green</span>
+								<span>#chair</span>
+							</p> -->
+							<a class="gallery__item-link"></a>
+						</figcaption>
+					</figure>
+					<figure class="gallery__item" data-scroll="" data-scroll-speed="1">
+						<div class="gallery__item-img"><div class="gallery__item-imginner" style="background-image: url(../../../static/images/profile.jpg)"></div></div>
+						<figcaption class="gallery__item-caption">
+							<h2 class="gallery__item-title">Add a Beneficiary</h2>
+							<span class="gallery__item-number">02</span>
+						<!-- <p class="gallery__item-tags">
+								<span>#love</span>
+								<span>#hug</span>
+								<span>#people</span>
+							</p>  -->
+							<a class="gallery__item-link"></a>
+						</figcaption>
+					</figure>
+					<figure class="gallery__item" data-scroll="" data-scroll-speed="1">
+						<div class="gallery__item-img"><div class="gallery__item-imginner" style="background-image: url(../../../static/images/profile.jpg)"></div></div>
+						<figcaption class="gallery__item-caption">
+							<h2 class="gallery__item-title">Make Once Off Payment</h2>
+							<span class="gallery__item-number">03</span>
+							<!-- <p class="gallery__item-tags">
+								<span>#hike</span>
+								<span>#nature</span>
+								<span>#rain</span>
+							</p> -->
+							<a class="gallery__item-link-next"></a>
+						</figcaption>
+					</figure>
+					<figure class="gallery__item" data-scroll="" data-scroll-speed="1">
+						<div class="gallery__item-img"><div class="gallery__item-imginner" style="background-image: url(../../../static/images/profile.jpg)"></div></div>
+						<figcaption class="gallery__item-caption">
+							<h2 class="gallery__item-title">Await Verification</h2>
+							<span class="gallery__item-number">04</span>
+							<!-- <p class="gallery__item-tags">
+								<span>#free</span>
+								<span>#wood</span>
+								<span>#fire</span>
+							</p> -->
+							<a class="gallery__item-link-x"></a>
+						</figcaption>
+					</figure>
+					<figure class="gallery__item" data-scroll="" data-scroll-speed="1" -target="#gallery" -speed="1">
+						<div class="gallery__item-img"><div class="gallery__item-imginner" style="background-image: url(../../../static/images/profile.jpg)"></div></div>
+						<figcaption class="gallery__item-caption">
+							<h2 class="gallery__item-title">Recieve Confirmation</h2>
+							<span class="gallery__item-number">05</span>
+							<!-- <p class="gallery__item-tags">
+								<span>#cloud</span>
+								<span>#lake</span>
+								<span>#frog</span>
+							</p> -->
+							<a class="gallery__item-link-x"></a>
+						</figcaption>
+					</figure>
+					<div class="gallery__text"><span class="gallery__text-inner" data-scroll="" data-scroll-speed="-4" data-scroll-direction="vertical">Process</span><span data-scroll="" data-scroll-speed="3" data-scroll-direction="vertical" class="gallery__text-inner">Complete</span></div>
+				</div>
+			</div>
+		</main>
+		<svg class="cursor" width="20" height="20" viewBox="0 0 20 20">
+			<circle class="cursor__inner" cx="10" cy="10" r="5"></circle>
+		</svg>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
+		<script src="{% static 'js/demo4.e22d7780.js' %}"></script>
+	</body>
+</html>

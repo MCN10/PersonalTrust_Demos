@@ -1,0 +1,97 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Personal Trust Demo</title>
+    <meta name="description" content="Personal Trust Demo" />
+    <meta name="keywords" content="Personal Trust Demo" />
+    <meta name="author" content="Mufudzi Christopher" />
+   <link rel="shortcut icon" href="{% static '/images/download.jpeg' %}">
+		<link rel="stylesheet" href="https://use.typekit.net/gpd2hso.css">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/base.98fd6c19.css' %}">
+		<script>document.documentElement.className = "js";
+
+var supportsCssVars = function supportsCssVars() {
+  var e,
+      t = document.createElement("style");
+  return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e;
+};
+
+supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+	</head>
+	<body class="loading demo-3">
+		<main>
+			<div class="frame">
+				<h1 class="frame__title"><a href="{% url 'app:home' %}"><img  src="{% static '/images/download.jpeg' %}" style="width: 50%; border-radius: 5%; opacity: 0.8;" /></a><span></span></h1>
+				<nav class="slides-nav">
+					<button class="slides-nav__button slides-nav__button--prev" aria-label="Previous slide">
+						<svg><path d="M1.176 11.532a.5.5 0 00-.352.936c5.228 1.96 9.475 5.555 12.752 10.797a.5.5 0 00.848-.53c-3.39-5.424-7.81-9.163-13.248-11.203z"></path><path d="M1.176 12.468a.5.5 0 01-.352-.936C6.052 9.572 10.3 5.978 13.576.735a.5.5 0 01.848.53c-3.39 5.424-7.81 9.163-13.248 11.203z"></path><path d="M1 12.5a.5.5 0 110-1h53a.5.5 0 110 1H1z"></path></svg>
+					</button>
+					<button class="slides-nav__button slides-nav__button--next" aria-label="Next slide">
+						<svg><path d="M53.824 11.532a.5.5 0 01.352.936c-5.228 1.96-9.475 5.555-12.752 10.797a.5.5 0 01-.848-.53c3.39-5.424 7.81-9.163 13.248-11.203z"></path><path d="M53.824 12.468a.5.5 0 00.352-.936C48.948 9.572 44.7 5.978 41.424.735a.5.5 0 00-.848.53c3.39 5.424 7.81 9.163 13.248 11.203z"></path><path d="M54 12.5a.5.5 0 100-1H1a.5.5 0 100 1h53z"></path></svg>
+					</button>
+					<div class="slides-nav__index">
+						<span class="slides-nav__index-current">
+							<span>1</span>
+						</span>
+						&mdash;
+						<span class="slides-nav__index-total">5</span>
+					</div>
+				</nav>
+			</div>
+			<div class="slideshow">
+				<figure class="slide slide--current">
+					<div class="slide__img-wrap"><div class="slide__img" style="background-image: url('{% static '/images/pt_home_slide5.jpg' %}')"></div></div>
+					<figcaption class="slide__caption">
+						<h2 class="slides__caption-headline">
+							<span class="text-row"><span>Personal Trust<em></em></span></span>
+							<span class="text-row"><span> <em> Benefiary Payments Manager</em> <strong></strong></span></span>
+						</h2>
+            <a class="slides__caption-link" href="{% url 'account:login' %}"><span>Login</span></a>
+					</figcaption>
+				</figure>
+				<figure class="slide">
+					<div class="slide__img-wrap"><div class="slide__img" style="background-image: url('{% static '/images/111.png' %}')"></div></div>
+					<figcaption class="slide__caption">
+						<h2 class="slides__caption-headline">
+							<span class="text-row"><span>Process Outline <strong></strong></span></span>
+						</h2>
+            <a class="slides__caption-link" href="{% url 'account:login' %}"><span>Login</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+          			</figcaption>
+				</figure>
+        <figure class="slide">
+					<div class="slide__img-wrap"><div class="slide__img" style="background-image: url('{% static '/images/222.png' %}')"></div></div>
+					<figcaption class="slide__caption">
+						<h2 class="slides__caption-headline">
+							<span class="text-row"><span>Beneficiary Management <strong></strong></span></span>
+						</h2>
+            <a class="slides__caption-link" href="{% url 'account:login' %}"><span>Login</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+          				</figcaption>
+				</figure>
+
+				<figure class="slide">
+					<div class="slide__img-wrap"><div class="slide__img" style="background-image: url('{% static '/images/444.png' %}')"></div></div>
+					<figcaption class="slide__caption">
+						<h2 class="slides__caption-headline">
+							<span class="text-row"><span>Contact US <em></em></span></span>
+						</h2>
+            <a class="slides__caption-link" href="{% url 'account:login' %}"><span>Login</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+          		</figcaption>
+				</figure>
+				<figure class="slide">
+					<div class="slide__img-wrap"><div class="slide__img" style="background-image: url('{% static '/images/PT_hero7.jpg' %}')"></div></div>
+					<figcaption class="slide__caption">
+						<h2 class="slides__caption-headline">
+							<span class="text-row"><span> <em></em></span></span>
+						</h2>
+            <a class="slides__caption-link" href="{% url 'account:login' %}"><span>Login</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+          			</figcaption>
+				</figure>
+			</div>
+		</main>
+		<script src="{% static 'js/demo3.b516845c.js' %}"></script>
+	</body>
+</html>

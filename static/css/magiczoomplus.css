@@ -1,0 +1,14 @@
+
+#img-container{
+	z-index: 1;
+	max-width: 100%;
+	position: relative;
+}
+
+#lens{
+	z-index: 2;
+	position: relative;
+	height: 125px;
+	width: 125px;
+	border:2px solid black;
+	background-repeat: no-repeat;

@@ -1,0 +1,55 @@
+{% extends 'inside_base.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+{% block body %}
+
+
+<!-- Main -->
+<div class="view">
+
+    <section class="grid" id="main">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="">
+                    {% if action == 'create' %}
+                    <h3>Add New Beneficiary</h3>
+                    {% elif action == 'update' %}
+                    <h3>Update Beneficiary</h3>
+                    {% endif %}
+                </div>
+                <a href="{% url 'app:profile' %}"  class=" viewing btn action--button action "><button>Back</button></a>
+
+            </div>
+
+        </div>
+<hr>
+
+<div class="card card-body">
+  <form action="" method="POST">
+              {% csrf_token %}
+        {% for field in form %}
+          {{field.label}}
+          {{field|add_class:'form-control'}}
+
+        {% endfor %}
+        <hr>
+        <input type="submit" class="btn btn-info">
+      </form>
+
+
+
+
+
+                </div>
+
+            </div>
+
+<script type="text/javascript">
+    console.log("You have reached the Profile page")
+
+</script>
+
+{% endblock %}
