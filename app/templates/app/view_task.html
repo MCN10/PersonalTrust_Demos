@@ -15,12 +15,14 @@
             <div class="col-md-12">
                 <div class="">
                     {% if action == 'create' %}
-                    <h3>Add New Beneficiary</h3>
+                    <h3>Add New Task</h3>
                     {% elif action == 'update' %}
-                    <h3>Update Beneficiary</h3>
+                    <h3>Update Task</h3>
+                    {% elif action == 'view' %}
+                    <h3>View Task</h3>
                     {% endif %}
                 </div>
-                <a href="{% url 'app:profile' %}"  class=" viewing btn action--button action "><button>Back</button></a>
+                <a href="{% url 'app:tasks' %}"  class=" viewing btn action--button action "><button>Back</button></a>
 
             </div>
 
@@ -36,7 +38,6 @@
 
         {% endfor %}
         <hr>
-        <input type="submit" class="btn btn-info">
       </form>
 
 

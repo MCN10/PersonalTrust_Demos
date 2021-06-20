@@ -1,0 +1,106 @@
+{% extends 'inside_base.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+{% block body %}
+
+
+<!-- Main -->
+<div class="view">
+
+    <section class="grid" id="main">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="">
+                    {% if action == 'create' %}
+                    <h3>Add New Task</h3>
+                    {% elif action == 'update' %}
+                    <h3>Update Task</h3>
+                    {% elif action == 'view' %}
+                    <h3>View Task</h3>
+                    {% endif %}
+                </div>
+                <a href="{% url 'app:tasks' %}"  class=" viewing btn action--button action "><button>Back</button></a>
+
+            </div>
+
+        </div>
+<hr>
+
+<div class="card card-body">
+
+
+      <form action="" method="POST">
+        {% csrf_token %}
+
+              Name:
+              <input type="text" name="name" value="google-demo" maxlength="200" class="form-control" required id="id_name">
+
+
+              Creator:
+              <input type="text" name="creator" value="{{request.user.email}}" class="form-control" readonly required id="id_creator">
+
+              Assigne To:
+              {{form.assignee}}
+<br>
+
+
+              Description:
+              <textarea name="description" cols="40" rows="10" maxlength="200" class="form-control" required id="id_description">
+              </textarea>
+
+
+              Priority:
+              <select name="priority" class="form-control" required id="id_priority">
+      <option value="">---------</option>
+
+      <option value="P1" selected>P1</option>
+
+      <option value="P2">P2</option>
+
+      <option value="P3">P3</option>
+
+    </select>
+
+
+              Notes:
+              <textarea name="notes" cols="40" rows="10" maxlength="200" class="form-control" id="id_notes">
+    </textarea>
+
+
+              Status:
+              <select name="status" class="form-control" required id="id_status">
+      <option value="">---------</option>
+
+      <option value="Pending" selected>Pending</option>
+
+      <option value="In Progress">In Progress</option>
+
+      <option value="Complete">Complete</option>
+
+      <option value="Back-log">Back-log</option>
+
+    </select>
+
+
+              Due date:
+              <input type="date" name="due_date" value="2021-06-20" class="form-control" id="id_due_date">
+
+
+            <hr>
+            <input type="submit" class="btn btn-info">
+          </form>
+
+
+                </div>
+
+            </div>
+
+<script type="text/javascript">
+    console.log("You have reached the Profile page")
+
+</script>
+
+{% endblock %}

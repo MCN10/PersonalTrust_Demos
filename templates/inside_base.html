@@ -99,22 +99,24 @@
         <hr>
 
         <nav>
-            <a href="{% url 'app:home' %}" title="Home">
+            <a href="{% url 'app:tasks' %}" title="Home">
                 <ion-icon src="{% static 'ion-icons/globe-outline.svg' %}" size="large"></ion-icon><br>Home
             </a>
-            <a href="{% url 'app:track' %}" title="Track Your Application Here">
-                <ion-icon src="{% static 'ion-icons/analytics-outline.svg' %}" size="large"></ion-icon><br>
-                Process
-            </a>
 
-            <a href="{% url 'app:profile' %}" title="My  Profile">
-                <ion-icon src="{% static 'ion-icons/person-outline.svg' %}" size="large"></ion-icon><br>Profile
+            <a href="{% url 'app:tasks' %}" title="All Tasks">
+                <ion-icon src="{% static 'ion-icons/list-outline.svg' %}" size="large"></ion-icon><br>All Tasks
             </a>
 
 
-            <a href="{% url 'app:contact' %}" title="Contact">
-                <ion-icon src="{% static 'ion-icons/mail-outline.svg' %}" size="large"></ion-icon><br>Contact
+            <a href="{% url 'app:my_tasks' %}" title="Assigned Tasks">
+                <ion-icon src="{% static 'ion-icons/list-circle-outline.svg' %}" size="large"></ion-icon><br>Assigned
             </a>
+
+            <a href="{% url 'app:created_tasks' %}" title="Created Tasks">
+                <ion-icon src="{% static 'ion-icons/finger-print-outline.svg' %}" size="large"></ion-icon><br>Created
+            </a>
+
+
 
             <a href="{% url 'account:logout' %}" title="Log Out">
                 <ion-icon src="{% static 'ion-icons/log-out-outline.svg' %}" size="large"></ion-icon><br>Logout

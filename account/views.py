@@ -17,13 +17,13 @@ def registration_view(request):
 			email = form.cleaned_data.get('email')
 			raw_password = form.cleaned_data.get('password1')
 			account = authenticate(email=email, password=raw_password)
-			Customer.objects.create(
+			Owner.objects.create(
                     user=account,
                     email=email,
                 )
 			login(request, account)
 			messages.success(request, ('Registration Successful'))
-			return redirect('app:home')
+			return redirect('app:tasks')
 		else:
 			context['registration_form'] = form
 	else: #GET request
@@ -44,7 +44,7 @@ def login_view(request):
 
 	 user = request.user
 	 if user.is_authenticated:
-	 	return redirect("app:home")
+	 	return redirect("app:tasks")
 
 	 if request.POST:
 	 	form = AccountAuthenticationForm(request.POST)
@@ -56,7 +56,7 @@ def login_view(request):
 	 		if user:
 	 			login(request, user)
 	 			messages.success(request, ("Welcome back!"))
-	 			return redirect("app:home")
+	 			return redirect("app:tasks")
 	 		else:
 	 			messages.success(request, ("Ooops! We're sorry but that didn't work. Please try again!"))
 	 			return redirect('account:login')

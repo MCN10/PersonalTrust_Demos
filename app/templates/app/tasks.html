@@ -1,0 +1,101 @@
+{% extends 'inside_base.html' %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block body %}
+
+
+<!-- Main -->
+<div class="view">
+
+    <!-- Grid -->
+
+    <section class="grid" id="main">
+        <header>
+            <h3>{{user.username}}</h3>
+            <h5 style="text-decoration: underline; font-weight: 400">{{user.email}}</h5>
+            <a class="btn action--button action viewing" href="{% url 'app:add_task' %}">Add A New task</a>
+
+        </header>
+        <br>
+
+        <div class="row">
+	<div class="col">
+		<div class="card card-body">
+			<form method="get">
+		    {% for field in filter.form %}
+		    	{{field.label}}
+		    	{{field|add_class:'form-control-sm'}}
+		    {% endfor %}
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+		</div>
+	</div>
+
+</div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-body">
+
+
+                  <table>
+            <thead>
+                <tr>
+                  <th class="action--text">Date_Created</th>
+                  <th class="action--text">Name</th>
+                  <th class="action--text">Asigned to</th>
+                    <th class="action--text">Priority</th>
+                    <th class="action--text">Status</th>
+                    <th class="action--text">Due Date</th>
+                    <th class="action--text"></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                {% if task.assignee == request.user.owner or task.creator == request.user.email %}
+
+                <tr >
+                  <td>
+                      <h5 class="action--text">{{task.date_created}}</h5>
+                  </td>
+
+                  <td>
+                  <h4 class="action--text">{{task.name}}</h4>
+                </td>
+                <td>
+                  <h4 class="action--text">{{task.assignee}}</h4>
+                </td>
+
+                    <td>
+                        <h4 class="action--text">{{ task.priority}}</h4>
+                    </td>
+
+
+                    <td>
+                        <h4 class="action--text">{{ task.status}}</h4>
+                    </td>
+                    <td>
+                        <h5 class="action--text">{{ task.due_date}}</h5>
+                      </td>
+
+                    <td><a class="btn btn-sm btn-info" href="{% url 'app:view_task' task.id %}">View</a><br><br><a class="btn btn-sm btn-warning" href="{% url 'app:update_task' task.id %}">Update</a><br><br><a class="btn btn-sm btn-danger" href="{% url 'app:delete_task' task.id %}">Delete</a></td>
+                </tr><!-- END TR-->
+                {% endif %}
+                {% endfor %}
+
+
+            </tbody>
+        </table>
+    </section>
+
+
+</div>
+<script type="text/javascript">
+    console.log("You have reached the Profile page")
+
+</script>
+
+
+{% endblock %}

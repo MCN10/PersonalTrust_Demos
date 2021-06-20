@@ -15,16 +15,19 @@
             <div class="col-md-12">
                 <div class="">
                     {% if action == 'create' %}
-                    <h3>Add New Beneficiary</h3>
+                    <h3>Add New Task</h3>
                     {% elif action == 'update' %}
-                    <h3>Update Beneficiary</h3>
+                    <h3>Update Task</h3>
                     {% endif %}
                 </div>
-                <a href="{% url 'app:profile' %}"  class=" viewing btn action--button action "><button>Back</button></a>
 
             </div>
 
         </div>
+        <header>
+            <a class="btn action--button action viewing" href="{% url 'app:tasks' %}">Back</a>
+
+        </header>
 <hr>
 
 <div class="card card-body">
@@ -52,4 +55,4 @@
 
 </script>
 
-{% endblock %}
+{% endblock body %}
