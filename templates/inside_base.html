@@ -99,28 +99,55 @@
         <hr>
 
         <nav>
-            <a href="{% url 'app:tasks' %}" title="Home">
-                <ion-icon src="{% static 'ion-icons/globe-outline.svg' %}" size="large"></ion-icon><br>Home
+
+            {% if view == 'tasks' %}
+
+            <a href="{% url 'app:tasks' %}" title="All Tasks">
+                <ion-icon src="{% static 'ion-icons/list.svg' %}" size="large"></ion-icon><br><strong>All Tasks</strong>
             </a>
+            {% else %}
 
             <a href="{% url 'app:tasks' %}" title="All Tasks">
                 <ion-icon src="{% static 'ion-icons/list-outline.svg' %}" size="large"></ion-icon><br>All Tasks
             </a>
+            {% endif %}
 
-
+            {% if view == 'assigned' %}
+            <a href="{% url 'app:my_tasks' %}" title="Assigned Tasks">
+                <ion-icon src="{% static 'ion-icons/list-circle.svg' %}" size="large"></ion-icon><br><strong>Assigned</strong>
+            </a>
+            {% else %}
             <a href="{% url 'app:my_tasks' %}" title="Assigned Tasks">
                 <ion-icon src="{% static 'ion-icons/list-circle-outline.svg' %}" size="large"></ion-icon><br>Assigned
             </a>
+            {% endif %}
 
+            {% if view == 'created' %}
+            <a href="{% url 'app:created_tasks' %}" title="Created Tasks">
+                <ion-icon src="{% static 'ion-icons/finger-print.svg' %}" size="large"></ion-icon><br><strong>Created</strong>
+            </a>
+            {% else %}
             <a href="{% url 'app:created_tasks' %}" title="Created Tasks">
                 <ion-icon src="{% static 'ion-icons/finger-print-outline.svg' %}" size="large"></ion-icon><br>Created
             </a>
+            {% endif %}
 
+            {% if view == 'create' %}
 
+            <a href="{% url 'app:add_task' %}" title="Add Task">
+                <ion-icon src="{% static 'ion-icons/add-circle.svg' %}" size="large"></ion-icon><br><strong>Add Task</strong>
+            </a>
+            {% else %}
+            <a href="{% url 'app:add_task' %}" title="Add Task">
+                <ion-icon src="{% static 'ion-icons/add-circle-outline.svg' %}" size="large"></ion-icon><br>Add Task
+            </a>
+            {% endif %}
 
             <a href="{% url 'account:logout' %}" title="Log Out">
                 <ion-icon src="{% static 'ion-icons/log-out-outline.svg' %}" size="large"></ion-icon><br>Logout
             </a>
+
+
             <p>Logged in as: {{user.username}}
             </p>
 

@@ -32,40 +32,43 @@ def track(request):
 def tasks(request):
     if not request.user.is_authenticated:
         return redirect("account:login")
+    view = 'tasks'
 
     tasks = Task.objects.all()
     name = "All Tasks"
     taskFilter = TaskFilter(request.GET, queryset=tasks)
     total_tasks = tasks.count()
     tasks = taskFilter.qs
-    context = {'tasks': tasks, 'name': name, 'total_tasks': total_tasks, 'filter':taskFilter}
+    context = {'tasks': tasks, 'name': name, 'total_tasks': total_tasks, 'filter':taskFilter, 'view':view}
     return render(request, 'app/tasks.html',context)
 
 def my_tasks(request):
     if not request.user.is_authenticated:
         return redirect("account:login")
+    view = 'assigned'
 
     name = "My Tasks"
     tasks = Task.objects.filter(assignee=request.user.owner)
     taskFilter = TaskFilter(request.GET, queryset=tasks)
     total_tasks = tasks.count()
     tasks = taskFilter.qs
-    context = {'tasks': tasks, 'name': name, 'total_tasks': total_tasks, 'filter':taskFilter}
+    context = {'tasks': tasks, 'name': name, 'total_tasks': total_tasks, 'filter':taskFilter, 'view':view}
     return render(request, 'app/tasks.html', context)
 
 def created_tasks(request):
     if not request.user.is_authenticated:
         return redirect("account:login")
-
+    view = 'created'
     name = "My Tasks"
     tasks = Task.objects.filter(creator=request.user.email)
     taskFilter = TaskFilter(request.GET, queryset=tasks)
     total_tasks = tasks.count()
     tasks = taskFilter.qs
-    context = {'tasks': tasks, 'name': name, 'total_tasks': total_tasks, 'filter':taskFilter}
+    context = {'tasks': tasks, 'name': name, 'total_tasks': total_tasks, 'filter':taskFilter, 'view':view}
     return render(request, 'app/tasks.html', context)
 
 def add_task(request):
+    view = 'create'
     action = 'create'
     name = "Add Task"
     form = TaskForm( initial={'creator': request.user.email, 'owner':request.user.owner})
@@ -75,7 +78,7 @@ def add_task(request):
             form.save()
             return redirect('app:tasks')
 
-    context =  {'action':action, 'form':form, 'name':name }
+    context =  {'action':action, 'form':form, 'name':name , 'view':view }
     return render(request, 'app/add_task.html', context)
 
 def update_task(request, pk):
@@ -94,7 +97,6 @@ def update_task(request, pk):
     return render(request, 'app/add_task.html', context)
 
 def view_task(request, pk):
-    action = 'view'
     task = Task.objects.get(id=pk)
     form = TaskForm(instance=task, initial={'due_date': task.due_date,'name': task.name,'description': task.description,'priority': task.priority,'notes': task.notes ,'status': task.status } )
 
