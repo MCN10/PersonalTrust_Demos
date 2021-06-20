@@ -100,15 +100,30 @@
 
         <nav>
 
+          {% if request.user.is_superuser  %}
+          {% if view == 'admin'%}
+
+          <a href="{% url 'app:task_admin' %}" title="Task Admin">
+              <ion-icon src="{% static 'ion-icons/options.svg' %}" size="large"></ion-icon><br><strong>Admin</strong>
+          </a>
+          {% else %}
+
+          <a href="{% url 'app:task_admin' %}" title="Task Admin">
+              <ion-icon src="{% static 'ion-icons/options-outline.svg' %}" size="large"></ion-icon><br>Admin
+          </a>
+          {% endif %}
+          {% endif %}
+
+
             {% if view == 'tasks' %}
 
             <a href="{% url 'app:tasks' %}" title="All Tasks">
-                <ion-icon src="{% static 'ion-icons/list.svg' %}" size="large"></ion-icon><br><strong>All Tasks</strong>
+                <ion-icon src="{% static 'ion-icons/list.svg' %}" size="large"></ion-icon><br><strong>My Tasks</strong>
             </a>
             {% else %}
 
             <a href="{% url 'app:tasks' %}" title="All Tasks">
-                <ion-icon src="{% static 'ion-icons/list-outline.svg' %}" size="large"></ion-icon><br>All Tasks
+                <ion-icon src="{% static 'ion-icons/list-outline.svg' %}" size="large"></ion-icon><br>My Tasks
             </a>
             {% endif %}
 

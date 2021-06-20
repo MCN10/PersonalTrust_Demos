@@ -28,6 +28,19 @@ def landing(request):
 def track(request):
     return render(request, 'app/track.html', {})
 
+def task_admin(request):
+    if not request.user.is_authenticated:
+        return redirect("account:login")
+    view = 'admin'
+
+    tasks = Task.objects.all()
+    name = "All Tasks"
+    taskFilter = TaskFilter(request.GET, queryset=tasks)
+    total_tasks = tasks.count()
+    tasks = taskFilter.qs
+    context = {'tasks': tasks, 'name': name, 'total_tasks': total_tasks, 'filter':taskFilter, 'view':view}
+    return render(request, 'app/task_admin.html',context)
+
 
 def tasks(request):
     if not request.user.is_authenticated:

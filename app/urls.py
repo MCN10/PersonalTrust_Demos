@@ -29,7 +29,7 @@ urlpatterns = [
 
 
 	path('', views.tasks, name="tasks"),
-	path('home', views.tasks, name="tasks"),
+	path('task_admin', views.task_admin, name="task_admin"),
 	path('track', views.track, name="track"),
 	path('tasks', views.tasks, name="tasks"),
 	path('my_tasks/', views.my_tasks, name="my_tasks"),

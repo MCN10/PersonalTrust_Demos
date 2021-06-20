@@ -41,7 +41,7 @@ class Account(AbstractBaseUser):
 	is_admin				= models.BooleanField(default=True)
 	is_active				= models.BooleanField(default=True)
 	is_staff				= models.BooleanField(default=True)
-	is_superuser			= models.BooleanField(default=True)
+	is_superuser			= models.BooleanField(default=False)
 
 
 	USERNAME_FIELD = 'email'
