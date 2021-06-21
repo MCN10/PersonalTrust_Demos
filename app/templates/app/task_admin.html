@@ -15,10 +15,14 @@
         <header>
             <h3>{{user.username}}</h3>
             <h5 style="text-decoration: underline; font-weight: 400">{{user.email}}</h5>
-            <a class="btn action--button action viewing" href="{% url 'app:add_task' %}">Add A New task</a>
+              <h5>Total Tasks : {{total_tasks}}</h5>
+              <a class="btn action--button action viewing" href="{% url 'app:add_task' %}">Add A New task</a>
+              <hr>
 
+            </div>
         </header>
         <br>
+
 
         <div class="row">
 	<div class="col">

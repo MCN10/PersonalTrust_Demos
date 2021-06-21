@@ -33,7 +33,7 @@ class Task(models.Model):
     name                = models.CharField(max_length=200, null=True)
     creator                = models.CharField(max_length=200, null=True)
     assignee               = models.ForeignKey(Owner, on_delete=models.SET_NULL, blank=True, null=True)
-    description         = models.TextField(max_length=200, null=True)
+    description         = models.TextField(max_length=200, null=True,  blank=True)
     priority            = models.CharField(max_length=200, null=True, choices=PRIORITY)
     notes               = models.TextField(max_length=200, null=True , blank=True)
     status              = models.CharField(max_length=200, null=True, choices=STATUS)

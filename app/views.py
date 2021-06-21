@@ -97,7 +97,7 @@ def add_task(request):
 def update_task(request, pk):
     action = 'update'
     task = Task.objects.get(id=pk)
-    form = TaskForm(instance=task, initial={'name': task.name,'description': task.description,'priority': task.priority,'notes': task.notes ,'status': task.status } )
+    form = TaskForm(instance=task, initial={'creator': task.creator, 'name': task.name,'description': task.description,'priority': task.priority,'notes': task.notes ,'status': task.status } )
 
     if request.method == 'POST':
         form = TaskForm(request.POST, instance=task)
@@ -107,13 +107,12 @@ def update_task(request, pk):
             return redirect('app:tasks')
 
     context =  {'action':action, 'form':form,'task': task, }
-    return render(request, 'app/add_task.html', context)
+    return render(request, 'app/update_task.html', context)
 
 def view_task(request, pk):
     task = Task.objects.get(id=pk)
     form = TaskForm(instance=task, initial={'due_date': task.due_date,'name': task.name,'description': task.description,'priority': task.priority,'notes': task.notes ,'status': task.status } )
-
-    context =  {'action':action, 'form':form,'task': task, }
+    context =  {'form':form,'task': task, }
     return render(request, 'app/view_task.html', context)
 
 

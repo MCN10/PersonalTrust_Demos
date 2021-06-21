@@ -1,0 +1,10 @@
+
+[
+  {
+    "model": "app.task",
+    "pk": 1,
+    "fields": {
+      "name": "John",
+      "description": "Lennon"
+    }
+  },
