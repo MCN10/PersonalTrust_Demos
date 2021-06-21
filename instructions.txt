@@ -18,4 +18,4 @@
 4. Admin login
 
 email: admin@admin.com
-password: admin
+password: PersonalTrust
